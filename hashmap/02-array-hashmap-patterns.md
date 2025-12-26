@@ -1,4 +1,4 @@
-# Array + HashMap Patterns (FAANG Core)
+# Array + HashMap Patterns
 
 ---
 
