@@ -1,10 +1,50 @@
-# Common Array Patterns
+# Common Array Patterns (Interview Focused)
 
-- **Two pointers:** start/end pointers for pairs, reversing, partitioning.
-- **Sliding window:** variable-size or fixed-size window for subarray sums, averages.
-- **Prefix sums:** precompute sums for fast range queries.
-- **Frequency/counting:** use auxiliary arrays or maps for counting occurrences.
+---
 
-## When to apply
+## Pattern 1: Find Maximum / Minimum
 
-Choose pattern based on problem constraints (sorted vs unsorted, window size, need for in-place operations).
+```java
+int max = arr[0];
+for (int num : arr) {
+	max = Math.max(max, num);
+}
+```
+Time: O(n)
+
+## Pattern 2: Prefix Sum
+Prefix sum helps answer range / subarray queries efficiently.
+
+```java
+int[] prefix = new int[arr.length];
+prefix[0] = arr[0];
+
+for (int i = 1; i < arr.length; i++) {
+	prefix[i] = prefix[i - 1] + arr[i];
+}
+```
+Used in:
+
+- Subarray sum
+- Range sum queries
+
+## Pattern 3: Sorting + Traversal
+
+```java
+Arrays.sort(arr);
+```
+Used in:
+
+- Two pointer problems
+- Greedy algorithms
+
+⚠️ Sorting changes order → be careful
+
+## Pattern 4: Count Occurrences
+Handled using `HashMap` (see HashMap section)
+
+## Interview Notes
+- If brute force is O(n²), think `HashMap`.
+- If subarray or range → think prefix sum.
+- If sorted + pair → think two pointers.
+
